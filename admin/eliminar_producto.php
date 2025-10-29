@@ -1,7 +1,8 @@
 <?php
 session_start();
-// 1. Seguridad: Verificar sesión de administrador
-if (!isset($_SESSION['usuario_rol']) || $_SESSION['usuario_rol'] !== 'admin') {
+
+// Verificar si el usuario está logueado y es admin
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'admin') {
     header("Location: ../login.php");
     exit;
 }

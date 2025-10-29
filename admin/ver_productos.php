@@ -1,7 +1,7 @@
 <?php
 // Lógica de seguridad y conexión
 session_start();
-if (!isset($_SESSION['usuario_rol']) || $_SESSION['usuario_rol'] !== 'admin') {
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'admin') {
     header("Location: ../login.php");
     exit;
 }
