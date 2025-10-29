@@ -20,14 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verificar contraseña
         if (password_verify($password, $user['password'])) {
 
-            // Guardar datos del usuario en la sesión (formato compatible con carrito)
+            // Guardar datos del usuario en la sesión
             $_SESSION['usuario'] = [
                 'id' => $user['id'],
                 'nombre' => $user['nombre'],
                 'rol' => $user['rol']
             ];
 
-            // Redirigir según el rol
+            // Redirigir según el rol (texto)
             if ($user['rol'] === 'admin') {
                 header("Location: admin/dashboard.php");
             } else {

@@ -1,16 +1,16 @@
 <?php
 session_start();
 
-// Verificar si el usuario es admin
-if (!isset($_SESSION['usuario_rol']) || $_SESSION['usuario_rol'] !== 'admin') {
+// Verificar si el usuario está logueado y es admin
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'admin') {
     header("Location: ../login.php");
     exit;
 }
 
-$nombre = $_SESSION['usuario_nombre'];
+$nombre = $_SESSION['usuario']['nombre'];
 
-// Opcional: Manejar un mensaje de éxito/error de la redirección
-$mensaje = $_GET['mensaje'] ?? ''; 
+// Mensaje opcional
+$mensaje = $_GET['mensaje'] ?? '';
 ?>
 
 <!DOCTYPE html>
